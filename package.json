@@ -1,0 +1,11 @@
+{
+  "name": "scriptPro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "toolbox,curl,download",
+  "license": "MIT",
+  "dependencies": {
+    "aria2": "^4.1.0",
+    "got": "^11.0.2"
+  }
+}
