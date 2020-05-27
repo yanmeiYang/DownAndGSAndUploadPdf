@@ -2,7 +2,7 @@
  * @Description:
  * @Author: xiaobei
  * @Date: 2020-04-26 18:15:59
- * @LastEditTime: 2020-04-27 17:39:42
+ * @LastEditTime: 2020-05-11 18:06:08
  */
 
 const fs = require('fs');
@@ -67,23 +67,24 @@ class DownLoad {
     }
 
 
-    async addDownLoadTasks(urls, savePath, option) {
+    async addDownLoadTasks(urls, savePath, fileOption, option) {
         if (option) {
             this.power('changeGlobalOption', option)
         }
         const multicall = []
         urls.forEach((url) => {
-            multicall.push(["addUri", [url], { dir: savePath }])
+            const fileConfig = { dir: savePath, ...fileOption }
+            multicall.push(["addUri", [url], fileConfig])
         });
         return this.aria2.multicall(multicall)
     }
 
-    checkGlobalDownLoadStatus() {
+    checkGlobalStatus() {
         return this.aria2.call('getGlobalStat')
     }
 
-    checkStatusByGuid(guid) {
-        return this.aria2.call('tellStatus', gid[0], ["gid", "status"])
+    checkStatusByGuid(gid) {
+        return this.aria2.call('tellStatus', gid, ["gid", "status"])
     }
 
     power(method, option) {

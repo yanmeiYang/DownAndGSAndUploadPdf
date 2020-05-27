@@ -6,6 +6,9 @@
   "license": "MIT",
   "dependencies": {
     "aria2": "^4.1.0",
-    "got": "^11.0.2"
+    "form-data": "^3.0.0",
+    "ghostscript4js": "^3.2.1",
+    "got": "^11.0.2",
+    "request": "^2.88.2"
   }
 }
